@@ -1,0 +1,42 @@
+---
+const skillGroups = [
+  {
+    domain: "Data Engineering",
+    icon: "⚙️",
+    skills: ["Apache Spark", "Airflow", "dbt", "Kafka", "Flink", "Delta Lake"]
+  },
+  {
+    domain: "GenAI & ML",
+    icon: "🤖",
+    skills: ["LangChain", "OpenAI API", "FAISS", "HuggingFace", "RAG", "Prompt Engineering"]
+  },
+  {
+    domain: "Data & Analytics",
+    icon: "📊",
+    skills: ["SQL", "Pandas", "Plotly", "dbt", "BigQuery", "Tableau"]
+  },
+  {
+    domain: "Languages & Tools",
+    icon: "🐍",
+    skills: ["Python", "Bash", "SQL", "Git", "Docker", "Terraform"]
+  },
+  {
+    domain: "Cloud & Infra",
+    icon: "☁️",
+    skills: ["AWS (S3, Glue, Lambda)", "GCP (BigQuery, Dataflow)", "GitHub Actions", "CI/CD"]
+  }
+];
+---
+<section class="skills" id="skills">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    {skillGroups.map(group => (
+      <div class="skill-group">
+        <h3 class="skill-domain">{group.icon} {group.domain}</h3>
+        <div class="skill-tags">
+          {group.skills.map(skill => <span class="skill-tag">{skill}</span>)}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

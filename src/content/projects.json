@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Real-time ETL Pipeline",
+    "description": "End-to-end data pipeline ingesting 1M+ events/day using Apache Kafka, Spark Streaming, and dbt transformations into BigQuery.",
+    "tags": ["Python", "Apache Kafka", "Spark", "dbt", "BigQuery"],
+    "github": "https://github.com/yourusername/etl-pipeline",
+    "demo": "",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "RAG-based Document Q&A",
+    "description": "GenAI app using LangChain + FAISS vector store to answer questions over private PDFs. Deployed on Streamlit Cloud.",
+    "tags": ["Python", "LangChain", "OpenAI", "FAISS", "Streamlit"],
+    "github": "https://github.com/yourusername/rag-qa",
+    "demo": "https://your-app.streamlit.app",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Sales Analytics Dashboard",
+    "description": "Interactive Plotly dashboard with automated refresh, KPI tracking, and drill-down analysis for e-commerce sales data.",
+    "tags": ["Python", "Plotly", "Pandas", "SQL", "PostgreSQL"],
+    "github": "https://github.com/yourusername/sales-dashboard",
+    "demo": "",
+    "featured": true
+  }
+]

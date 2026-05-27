@@ -1,0 +1,49 @@
+---
+const roles = ["Data Engineer", "GenAI Engineer", "Data Analyst", "Python Developer"];
+---
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <p class="hero-greeting">Hi, I'm</p>
+    <h1 class="hero-name">Mohd iliyas</h1>
+    <div class="hero-role">
+      <span>Building scalable solutions as a </span>
+
+      <span
+        class="role-rotator"
+        id="role-rotator"
+        data-roles={JSON.stringify(roles)}
+      >
+        {roles[0]}
+      </span>
+    </div>
+    <p class="hero-bio">
+      Data Engineer & GenAI specialist based in Delhi, India. I transform raw data into 
+      reliable pipelines, intelligent systems, and actionable insights.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="/resume.pdf" class="btn-secondary" download>Download Resume</a>
+    </div>
+    <div class="hero-tags">
+      {["Python", "Apache Spark", "Airflow", "dbt", "LangChain", "SQL", "AWS"].map(t => (
+        <span class="hero-tag">{t}</span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const el = document.getElementById('role-rotator');
+  if (el) {
+    const roles: string[] = JSON.parse(el.dataset.roles || '[]');
+    let i = 0;
+    setInterval(() => {
+      el.style.opacity = '0';
+      setTimeout(() => {
+        i = (i + 1) % roles.length;
+        el.textContent = roles[i];
+        el.style.opacity = '1';
+      }, 300);
+    }, 2500);
+  }
+</script>

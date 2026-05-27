@@ -1,0 +1,69 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import questions from '../../content/interview/questions.json';
+const categories = [...new Set(questions.map((q: any) => q.category))];
+---
+<Layout title="Interview Guide | Your Name">
+  <section class="interview-guide">
+    <h1>Interview Guide</h1>
+    <p>Curated Q&A for Data Engineering, Python, SQL, and GenAI roles.</p>
+
+    <!-- Category filter buttons -->
+    <div class="filters" id="filters">
+      <button class="active" data-filter="all">All</button>
+      {categories.map((cat: string) => (
+        <button data-filter={cat}>{cat}</button>
+      ))}
+    </div>
+
+    <!-- Search -->
+    <input type="search" id="search" placeholder="Search questions..." />
+
+    <!-- Questions list -->
+    <div id="questions-list">
+      {questions.map((q: any) => (
+        <details class="question-item" data-category={q.category}>
+          <summary>
+            <span class="q-text">{q.question}</span>
+            <span class={`badge difficulty-${q.difficulty.toLowerCase()}`}>{q.difficulty}</span>
+            <span class="badge cat-badge">{q.category}</span>
+          </summary>
+          <div class="answer">{q.answer}</div>
+          <div class="tags">
+            {q.tags.map((t: string) => <span class="tag">{t}</span>)}
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Client-side filter + search — no backend needed
+  const filters = document.querySelectorAll('#filters button');
+  const items = document.querySelectorAll('.question-item');
+  const search = document.getElementById('search') as HTMLInputElement;
+  let activeFilter = 'all';
+
+  function applyFilters() {
+    const query = search.value.toLowerCase();
+    items.forEach(item => {
+      const cat = item.getAttribute('data-category') || '';
+      const text = item.textContent?.toLowerCase() || '';
+      const matchesCat = activeFilter === 'all' || cat === activeFilter;
+      const matchesSearch = text.includes(query);
+      (item as HTMLElement).style.display = matchesCat && matchesSearch ? 'block' : 'none';
+    });
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter') || 'all';
+      applyFilters();
+    });
+  });
+
+  search.addEventListener('input', applyFilters);
+</script>

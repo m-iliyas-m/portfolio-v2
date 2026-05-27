@@ -1,0 +1,68 @@
+---
+const experience = [
+  {
+    role: "Data Engineer",
+    company: "Company Name",
+    period: "Jan 2023 – Present",
+    bullets: [
+      "Built real-time ETL pipelines processing 1M+ records/day using Spark and Kafka",
+      "Reduced data latency by 60% by migrating batch jobs to streaming architecture",
+      "Designed dbt models for analytics team, improving query performance by 40%"
+    ]
+  },
+  {
+    role: "Data Analyst",
+    company: "Previous Company",
+    period: "Jun 2021 – Dec 2022",
+    bullets: [
+      "Built Plotly dashboards tracking KPIs for e-commerce operations",
+      "Automated weekly reports with Python, saving 8 hours/week",
+      "Wrote complex SQL queries for customer segmentation analysis"
+    ]
+  }
+];
+const education = [
+  { degree: "B.Tech / MCA / BCA", institution: "Your University", year: "2021" }
+];
+const certs = [
+  "AWS Certified Data Analytics – Specialty",
+  "Google Professional Data Engineer",
+  "dbt Fundamentals (free – getdbt.com)"
+];
+---
+<section class="experience" id="experience">
+  <h2 class="section-title">Experience</h2>
+  <div class="timeline">
+    {experience.map(job => (
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div>
+            <h3 class="timeline-role">{job.role}</h3>
+            <span class="timeline-company">{job.company}</span>
+          </div>
+          <span class="timeline-period">{job.period}</span>
+        </div>
+        <ul class="timeline-bullets">
+          {job.bullets.map(b => <li>{b}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="edu-certs">
+    <div class="education">
+      <h3>Education</h3>
+      {education.map(e => (
+        <div class="edu-item">
+          <strong>{e.degree}</strong> — {e.institution} ({e.year})
+        </div>
+      ))}
+    </div>
+    <div class="certifications">
+      <h3>Certifications</h3>
+      <ul>
+        {certs.map(c => <li>{c}</li>)}
+      </ul>
+    </div>
+  </div>
+</section>

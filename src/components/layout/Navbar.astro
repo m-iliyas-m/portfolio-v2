@@ -1,0 +1,30 @@
+---
+const links = [
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Notes', href: '/blog' },
+  { label: 'Interview Guide', href: '/interview-guide' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Contact', href: '#contact' },
+];
+---
+<nav class="navbar">
+  <a href="/" class="navbar-logo">Mohd<span class="accent">.</span>iliyas<span class="accent">.</span></a>
+  <ul class="navbar-links">
+    {links.map(link => (
+      <li><a href={link.href}>{link.label}</a></li>
+    ))}
+  </ul>
+  <a href="/resume.pdf" class="btn-resume" download>Resume ↓</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">☰</button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  {links.map(link => <a href={link.href}>{link.label}</a>)}
+  <a href="/resume.pdf" download>Resume ↓</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  hamburger?.addEventListener('click', () => menu?.classList.toggle('open'));
+</script>

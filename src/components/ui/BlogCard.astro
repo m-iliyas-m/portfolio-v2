@@ -1,0 +1,11 @@
+---
+const { title, date, description, tags, slug } = Astro.props;
+---
+<a href={`/blog/${slug}`} class="blog-card">
+  <time>{new Date(date).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })}</time>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="tags">
+    {tags.map((t: string) => <span class="tag">{t}</span>)}
+  </div>
+</a>

@@ -1,0 +1,37 @@
+---
+title: "10 Apache Airflow tips every data engineer should know"
+date: 2024-01-15
+tags: ["airflow", "data-engineering", "python"]
+description: "Practical tips to write better, more maintainable Airflow DAGs from production experience."
+---
+
+## 1. Use TaskFlow API for cleaner DAGs
+
+The `@task` decorator (Airflow 2.0+) makes DAGs far more readable than the traditional `PythonOperator`.
+
+```python
+from airflow.decorators import dag, task
+from datetime import datetime
+
+@dag(start_date=datetime(2024, 1, 1), schedule="@daily")
+def my_pipeline():
+    @task
+    def extract():
+        return {"records": 1000}
+
+    @task
+    def load(data: dict):
+        print(f"Loading {data['records']} records")
+
+    load(extract())
+```
+
+## 2. Always set `retries` and `retry_delay`
+
+Never leave tasks without retry logic in production.
+
+## 3. Use `catchup=False` for new DAGs
+
+Prevents Airflow from backfilling all missed runs when you first deploy.
+
+More tips coming soon...

@@ -1,0 +1,16 @@
+---
+const { title, description, tags, github, demo, featured } = Astro.props;
+---
+<article class="project-card">
+  <div class="project-card-top">
+    <h3 class="project-title">{title}</h3>
+    <div class="project-links">
+      {github && <a href={github} target="_blank" rel="noopener" aria-label="GitHub">⌥ GitHub</a>}
+      {demo && <a href={demo} target="_blank" rel="noopener" aria-label="Live demo">↗ Demo</a>}
+    </div>
+  </div>
+  <p class="project-desc">{description}</p>
+  <div class="project-tags">
+    {tags.map((tag: string) => <span class="tech-tag">{tag}</span>)}
+  </div>
+</article>

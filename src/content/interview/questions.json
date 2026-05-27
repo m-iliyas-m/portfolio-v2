@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "category": "SQL",
+    "difficulty": "Medium",
+    "question": "What is the difference between RANK(), DENSE_RANK(), and ROW_NUMBER()?",
+    "answer": "ROW_NUMBER() assigns a unique sequential integer to each row. RANK() assigns the same rank to ties but leaves gaps in the next rank number. DENSE_RANK() assigns the same rank to ties without skipping any rank numbers.",
+    "tags": ["window-functions", "sql", "analytics"]
+  },
+  {
+    "id": 2,
+    "category": "Python",
+    "difficulty": "Medium",
+    "question": "Explain the difference between a generator and a list comprehension.",
+    "answer": "List comprehensions evaluate eagerly — all values are computed and stored in memory at once. Generators are lazy — they yield one value at a time using the yield keyword, making them far more memory-efficient for large datasets.",
+    "tags": ["python", "generators", "memory"]
+  },
+  {
+    "id": 3,
+    "category": "Data Engineering",
+    "difficulty": "Hard",
+    "question": "How would you design a data pipeline for 10M records/day with exactly-once semantics?",
+    "answer": "Use idempotent writes with upsert logic, checkpoint-based offset tracking (Kafka consumer groups), and transactional writes to the sink. Delta Lake or Apache Iceberg on top of Spark Structured Streaming provides ACID guarantees for exactly-once processing.",
+    "tags": ["pipeline", "kafka", "spark", "reliability"]
+  },
+  {
+    "id": 4,
+    "category": "GenAI",
+    "difficulty": "Medium",
+    "question": "What is RAG and when would you choose it over fine-tuning?",
+    "answer": "RAG (Retrieval-Augmented Generation) retrieves relevant context at inference time from a vector store. Use RAG when your data changes frequently or is private. Use fine-tuning when you need a model to learn a specific tone, format, or behavior that is stable over time.",
+    "tags": ["rag", "llm", "genai", "fine-tuning"]
+  },
+  {
+    "id": 5,
+    "category": "SQL",
+    "difficulty": "Hard",
+    "question": "How would you optimize a slow SQL query on a 100M row table?",
+    "answer": "First run EXPLAIN ANALYZE to identify the bottleneck. Add indexes on filter/join columns, rewrite correlated subqueries as JOINs, use partitioning on date columns, push down filters before joins, and consider materializing intermediate CTEs. For analytics workloads, columnar storage (BigQuery, Redshift) helps significantly.",
+    "tags": ["sql", "optimization", "indexes", "performance"]
+  },
+  {
+    "id": 6,
+    "category": "Python",
+    "difficulty": "Easy",
+    "question": "What is the GIL in Python and how does it affect data processing?",
+    "answer": "The GIL (Global Interpreter Lock) prevents true multi-threading in CPython for CPU-bound tasks. For data processing, use multiprocessing (bypasses GIL), or libraries like NumPy/Pandas that release the GIL internally. For I/O-bound tasks (API calls, file reads), asyncio or threading still work well.",
+    "tags": ["python", "gil", "concurrency", "performance"]
+  }
+]

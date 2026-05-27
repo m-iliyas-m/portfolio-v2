@@ -1,0 +1,64 @@
+{
+  "data_engineering": [
+    {
+      "title": "Data Engineering Zoomcamp",
+      "url": "https://github.com/DataTalksClub/data-engineering-zoomcamp",
+      "type": "Course",
+      "free": true,
+      "description": "Free 9-week bootcamp: Docker, Terraform, Airflow, dbt, Spark, Kafka"
+    },
+    {
+      "title": "dbt Learn",
+      "url": "https://courses.getdbt.com/",
+      "type": "Course",
+      "free": true,
+      "description": "Official free dbt courses — fundamentals to advanced"
+    },
+    {
+      "title": "Awesome Data Engineering",
+      "url": "https://github.com/igorbarinov/awesome-data-engineering",
+      "type": "GitHub List",
+      "free": true,
+      "description": "Curated list of DE tools, frameworks, and learning resources"
+    }
+  ],
+  "gen_ai": [
+    {
+      "title": "LangChain Documentation",
+      "url": "https://python.langchain.com/docs/",
+      "type": "Docs",
+      "free": true,
+      "description": "Official LangChain docs with hands-on tutorials and examples"
+    },
+    {
+      "title": "fast.ai Practical Deep Learning",
+      "url": "https://course.fast.ai/",
+      "type": "Course",
+      "free": true,
+      "description": "Top-down practical approach to deep learning — totally free"
+    },
+    {
+      "title": "Prompt Engineering Guide",
+      "url": "https://www.promptingguide.ai/",
+      "type": "Guide",
+      "free": true,
+      "description": "Comprehensive guide to prompting techniques for LLMs"
+    }
+  ],
+  "python_and_analytics": [
+    {
+      "title": "Python for Data Analysis (free online)",
+      "url": "https://wesmckinney.com/book/",
+      "type": "Book",
+      "free": true,
+      "description": "Pandas by its creator Wes McKinney — free to read online"
+    },
+    {
+      "title": "Mode SQL Tutorial",
+      "url": "https://mode.com/sql-tutorial/",
+      "type": "Tutorial",
+      "free": true,
+      "description": "Interactive SQL tutorial from basics to window functions"
+    }
+  ]
+}

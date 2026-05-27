@@ -1,0 +1,29 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import resources from '../../content/resources/links.json';
+const sections = Object.entries(resources);
+---
+<Layout title="Free Resources | Your Name">
+  <section class="resources">
+    <h1>Free Resources</h1>
+    <p>Curated books, courses, and tools for data professionals.</p>
+
+    {sections.map(([category, items]: [string, any[]]) => (
+      <div class="resource-section">
+        <h2>{category.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</h2>
+        <div class="resource-grid">
+          {items.map((item: any) => (
+            <a href={item.url} target="_blank" rel="noopener" class="resource-card">
+              <div class="resource-top">
+                <span class="resource-title">{item.title}</span>
+                <span class={`badge ${item.free ? 'free' : 'paid'}`}>{item.free ? 'Free' : 'Paid'}</span>
+              </div>
+              <span class="resource-type">{item.type}</span>
+              <p class="resource-desc">{item.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </section>
+</Layout>
