@@ -1,13 +1,15 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 
-// Change this to your domain after setup
+// Removed sitemap integration — add it back once you set a real domain
+// import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
-  site: 'https://yourdomain.com',
+  site: 'https://m-iliyas-m.github.io',
+  base: '/portfolio-v2',   // ← must match your exact GitHub repo name
   integrations: [
     mdx(),
-    sitemap(),
+    // sitemap(),   ← re-enable after setting your real domain
   ],
   output: 'static',
 });
